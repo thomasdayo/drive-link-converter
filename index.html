@@ -3,69 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Drive Direct Download Link Converter</title>
-  <meta
-    name="description"
-    content="Google Driveの共有リンクを直接ダウンロードURLに変換するシンプルなツール"
-  />
+  <title>Google Driveリンク変換</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page">
-    <header class="hero">
-      <div class="hero-inner">
-        <p class="badge">Simple Utility</p>
-        <h1>Google Drive 共有リンク → 直接ダウンロードURL</h1>
-        <p class="hero-text">
-          Google Driveの共有リンクを、直接ダウンロードしやすい形式に一括変換できます。<br />
-          1行に1リンクずつ貼り付けてください。
-        </p>
-      </div>
-    </header>
+  <main class="container">
+    <h1>Google Drive 共有リンク → 直接ダウンロードURL</h1>
+    <p class="description">
+      Google Drive の共有リンクを貼り付けると、直接ダウンロード用URLに変換します。<br>
+      1行に1リンクずつ入力してください。
+    </p>
 
-    <main class="container">
-      <section class="panel">
-        <div class="panel-header">
-          <h2>リンクを入力</h2>
-          <p>対応例: <code>https://drive.google.com/file/d/{ID}/view?usp=sharing</code></p>
-        </div>
+    <label for="inputUrls" class="label">共有リンク一覧</label>
+    <textarea
+      id="inputUrls"
+      placeholder="https://drive.google.com/file/d/FILE_ID/view?usp=sharing&#10;https://drive.google.com/file/d/ANOTHER_ID/view?usp=sharing"
+      rows="10"
+    ></textarea>
 
-        <label for="inputUrls" class="label">Google Drive共有リンク</label>
-        <textarea
-          id="inputUrls"
-          rows="10"
-          placeholder="https://drive.google.com/file/d/FILE_ID/view?usp=sharing&#10;https://drive.google.com/file/d/ANOTHER_ID/view?usp=sharing"
-        ></textarea>
+    <div class="actions">
+      <button id="convertBtn">変換する</button>
+      <button id="clearBtn" class="secondary">クリア</button>
+      <button id="copyAllBtn" class="secondary">変換後URLを全てコピー</button>
+    </div>
 
-        <div class="toolbar">
-          <button id="convertBtn" class="btn btn-primary" type="button">変換する</button>
-          <button id="clearBtn" class="btn btn-secondary" type="button">クリア</button>
-          <button id="copyAllBtn" class="btn btn-secondary" type="button">変換後URLをすべてコピー</button>
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="panel-header">
-          <h2>変換結果</h2>
-          <p id="summaryText">まだ変換していません。</p>
-        </div>
-        <div id="results" class="results"></div>
-      </section>
-
-      <section class="tips">
-        <h3>メモ</h3>
-        <ul>
-          <li>ファイルの共有設定によっては、変換後URLでも直接ダウンロードできない場合があります。</li>
-          <li>大きいファイルでは Google Drive 側の確認画面が表示されることがあります。</li>
-          <li>コピー機能はブラウザのクリップボードAPIを使います。</li>
-        </ul>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p>Built for GitHub Pages · Static HTML / CSS / JavaScript</p>
-    </footer>
-  </div>
+    <section class="results-section">
+      <h2>変換結果</h2>
+      <div id="results" class="results"></div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
